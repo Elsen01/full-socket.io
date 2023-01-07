@@ -1,9 +1,20 @@
-const express = require('express');
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-router.get('/',(req,res) => {
-    res.send('Hello World')
-})
+router.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+    );
 
-module.exports = router
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-Requested-With,content-type"
+    );
+
+    res.send("Это только мой мир.");
+});
+
+module.exports = router;
